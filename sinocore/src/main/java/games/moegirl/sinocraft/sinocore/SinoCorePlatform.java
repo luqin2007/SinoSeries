@@ -5,6 +5,7 @@ import games.moegirl.sinocraft.sinocore.data.gen.IDataGenContext;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.server.MinecraftServer;
 
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class SinoCorePlatform {
@@ -31,6 +32,14 @@ public class SinoCorePlatform {
      */
     @ExpectPlatform
     public static IDataGenContext buildDataGeneratorContext(Object platformContext, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        throw new AssertionError();
+    }
+
+    /**
+     * 获取配置文件目录
+     */
+    @ExpectPlatform
+    public static Path getConfigFolder() {
         throw new AssertionError();
     }
 }

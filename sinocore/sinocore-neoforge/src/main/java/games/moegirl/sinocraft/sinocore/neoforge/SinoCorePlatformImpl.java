@@ -5,9 +5,11 @@ import games.moegirl.sinocraft.sinocore.data.gen.neoforge.NeoForgeDataGenContext
 import net.minecraft.core.HolderLookup;
 import net.minecraft.server.MinecraftServer;
 import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class SinoCorePlatformImpl {
@@ -26,5 +28,9 @@ public class SinoCorePlatformImpl {
 
     public static boolean isDevelopmentEnvironment() {
         return !FMLLoader.isProduction();
+    }
+
+    public static Path getConfigFolder() {
+        return FMLPaths.CONFIGDIR.get();
     }
 }

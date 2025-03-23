@@ -1,11 +1,9 @@
 package games.moegirl.sinocraft.sinobrush.item;
 
 import games.moegirl.sinocraft.sinobrush.SBRConstants;
-import games.moegirl.sinocraft.sinobrush.gui.screen.FanScreen;
 import games.moegirl.sinocraft.sinobrush.item.component.FanData;
 import games.moegirl.sinocraft.sinobrush.item.component.SBRDataComponents;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -79,7 +77,8 @@ public class FanItem extends Item {
 
         if (player.isShiftKeyDown()) {
             if (level.isClientSide) {
-                Minecraft.getInstance().setScreen(new FanScreen(usedHand, getLines(stack)));
+                ((Runnable) () -> net.minecraft.client.Minecraft.getInstance().setScreen(
+                        new games.moegirl.sinocraft.sinobrush.gui.screen.FanScreen(usedHand, getLines(stack)))).run();
             }
             return InteractionResultHolder.success(stack);
         }
