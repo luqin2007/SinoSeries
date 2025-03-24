@@ -77,8 +77,14 @@ public class FanItem extends Item {
 
         if (player.isShiftKeyDown()) {
             if (level.isClientSide) {
-                ((Runnable) () -> net.minecraft.client.Minecraft.getInstance().setScreen(
-                        new games.moegirl.sinocraft.sinobrush.gui.screen.FanScreen(usedHand, getLines(stack)))).run();
+                new Runnable() {
+
+                    @Override
+                    public void run() {
+                        net.minecraft.client.Minecraft.getInstance().setScreen(
+                                new games.moegirl.sinocraft.sinobrush.gui.screen.FanScreen(usedHand, getLines(stack)));
+                    }
+                }.run();
             }
             return InteractionResultHolder.success(stack);
         }
