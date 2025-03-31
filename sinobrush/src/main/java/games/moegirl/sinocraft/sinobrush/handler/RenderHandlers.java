@@ -26,8 +26,6 @@ public class RenderHandlers {
             }
         });
 
-        RenderEvents.BEFORE_RENDER_HUD.register(args -> FanRenderer.renderInHud(args.guiGraphics(), false));
-
         RenderEvents.CUSTOM_ITEM_RENDERER.register(args ->
                 args.register().register(new FanRenderer(), SBRItems.FAN.get()));
 
